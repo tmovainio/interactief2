@@ -1,0 +1,15 @@
+/* CSS for Rank column*/
+.rank, .score {
+    text-align: center;
+    font-weight: bolder;
+}
+td.rank{
+    background-color: #0d6efd;
+    color: rgb(255, 255, 255);
+}
+
+.this-team{
+    background-color: #1d428a;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}

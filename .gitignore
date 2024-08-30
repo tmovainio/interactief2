@@ -1,0 +1,9 @@
+target
+.idea/
+*.iml
+*.swp
+src/main/webapp/node_modules
+*.js.map
+notifications_test/node_modules
+notifications_test/package-lock.json
+.vscode/

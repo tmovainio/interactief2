@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"nl.utwente.di.interactief2.JDBC.attributeQueries"}];updateSearchResults();

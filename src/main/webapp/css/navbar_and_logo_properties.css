@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,800;0,900;0,1000;1,400;1,800;1,900;1,1000&display=swap');
+
+*{
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h1.display-2, .logo h1, .navbar-brand {
+    background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 1000;
+    font-family: "Mulish","Helvetica Neue", sans-serif;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1{
+    color: #009FFD;
+    font-weight: 800;
+    font-style: italic;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <title>Team Management</title>
+    <link rel="stylesheet" href="../css/navbar_and_logo_properties.css">
+    <link rel="stylesheet" href="../css/user-dashboard.css">
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-md shadow bg-white" id="nav-user">
+        <div class="container">
+            <!--Logo-->
+            <a class="navbar-brand logo" href="user-dashboard.html">
+                <h1>RlAlly</h1>
+            </a>
+            <!--Navbar Toggle Button / Hamburger for small screen-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+
+                <!--Links-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user-dashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="crazy.html">Crazy 88</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team-view-member.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="logout-button">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Main-->
+    <main>
+        <div class="container mt-4">
+            <div class="row justify-content-between">
+                <div class="col-md-8">
+                    <h1>Your Team Members</h1>
+                    <h2>The only friends you will ever have!</h2>
+                </div>
+                <div class="col-md-4 p-0">
+                    <p class="text-center p-2 text-bg-primary fw-bold mb-0">Join Code</p>
+                    <p class="leaderboard-toggle btn fw-bold border mt-0 w-100 p-2" id="Join_Code">#####</p>
+                    <button class="leaderboard-toggle btn btn-outline-danger shadow mt-0" type="submit"
+                        style="width: 100%;" id="leaderboard-toggle">Request New Code</button>
+                </div>
+            </div>
+
+            <!--Table content for approved members-->
+            <div class="tab-content" id="Team-members">
+
+
+
+                <!--Team member Tab-->
+                <div class="tab-pane fade show active" id="members" role="tabpanel">
+                    <div class="container">
+                        <table id="team-members" class="table mt-3 table-striped">
+                            <!--Table Head-->
+                            <thead>
+                                <tr class="bg-primary text-white">
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <!--Table Data-->
+                            <tbody>
+                                <!--<tr>
+                                    <th scope="row ">Levi</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Captain</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Joep</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                    <td>
+                                        <div class="d-none d-md-flex gap-2">
+                                            <button type="button" class="btn btn-danger deleteButton flex-grow-1 w-50">Kick</button>
+                                        </div>
+                                        <div class="d-md-none mt-1">
+                                            <button type="button" class="btn btn-danger deleteButton mt-1 w-100">Kick</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tycho</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                    <td>
+                                        <div class="d-none d-md-flex gap-2">
+                                            <button type="button" class="btn btn-danger deleteButton flex-grow-1 w-50">Kick</button>
+                                        </div>
+                                        <div class="d-md-none mt-1">
+                                            <button type="button" class="btn btn-danger deleteButton mt-1 w-100">Kick</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Awan</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                    <td>
+                                        <div class="d-none d-md-flex gap-2">
+                                            <button type="button" class="btn btn-danger deleteButton flex-grow-1 w-50">Kick</button>
+                                        </div>
+                                        <div class="d-md-none mt-1">
+                                            <button type="button" class="btn btn-danger deleteButton mt-1 w-100">Kick</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ansel</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                    <td>
+                                        <div class="d-none d-md-flex gap-2">
+                                            <button type="button" class="btn btn-danger deleteButton flex-grow-1 w-50">Kick</button>
+                                        </div>
+                                        <div class="d-md-none mt-1">
+                                            <button type="button" class="btn btn-danger deleteButton mt-1 w-100">Kick</button>
+                                        </div>
+                                    </td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-md-2  d-flex justify-content-end">
+                                <button id="removeAllRowsButton" type="button" class="btn btn-danger mt-1">Disband
+                                    Team</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Modal to kick off a member -->
+                        <div class="modal fade" id="confirmationModal" tabindex="-1"
+                            aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Kick a member?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" id="confirmDeleteSingle"
+                                            data-bs-dismiss="modal">Delete</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal to disband the team -->
+                        <div class="modal fade" id="confirmationAllModal" tabindex="-1"
+                            aria-labelledby="confirmationAllModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmationAllModalLabel">Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Disband the team?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" id="confirmDeleteAll"
+                                            data-bs-dismiss="modal">Remove All</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Get the button to remove all rows
+                    var removeAllRowsButton = document.getElementById('removeAllRowsButton');
+
+                    // Add click event handler to the button
+                    removeAllRowsButton.addEventListener('click', function () {
+                        // Show the confirmation modal for deleting all rows
+                        var confirmationAllModal = new bootstrap.Modal(document.getElementById('confirmationAllModal'));
+                        confirmationAllModal.show();
+
+                        // Attach click event handler to the confirm delete all button
+                        document.getElementById('confirmDeleteAll').addEventListener('click', function () {
+                            // Select the table body
+                            var tableBody = document.querySelector('#team-members tbody');
+
+                            // Start the fade-out animation
+                            var opacity = 1;
+                            var intervalId = setInterval(function () {
+                                // Decrease the opacity gradually
+                                opacity -= 0.1;
+                                tableBody.style.opacity = opacity;
+
+                                // Check if the fade-out animation is complete
+                                if (opacity <= 0) {
+                                    // Remove all rows from the table
+                                    tableBody.innerHTML = '';
+
+                                    // Stop the interval
+                                    clearInterval(intervalId);
+                                }
+                            }, 50); // Adjust the duration and smoothness of the fade-out animation if needed
+
+                            // Close the modal
+                            confirmationAllModal.hide();
+                        });
+                    });
+
+                    // Get all delete buttons
+                    var deleteButtons = document.querySelectorAll('.deleteButton');
+
+                    // Attach click event handler to each delete button
+                    deleteButtons.forEach(function (button) {
+                        button.addEventListener('click', function () {
+                            // Show the confirmation modal for deleting a single row
+                            var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                            confirmationModal.show();
+
+                            // Attach click event handler to the confirm delete single button
+                            document.getElementById('confirmDeleteSingle').addEventListener('click', function () {
+                                // Remove the row when the confirm delete single button is clicked
+                                var row = button.closest("tr");
+                                row.style.transition = "opacity 0.5s";
+                                row.style.opacity = "0";
+                                setTimeout(function () {
+                                    row.remove();
+                                }, 500);
+
+                                // Close the modal
+                                confirmationModal.hide();
+                            });
+                        });
+                    });
+                });
+
+            </script>
+        </div>
+    </main>
+</body>
+
+</html>

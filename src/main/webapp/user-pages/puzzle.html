@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <title>Puzzle</title>
+    <link rel="stylesheet" href="../css/navbar_and_logo_properties.css">
+    <script src="../serviceworker/loadsw.js"></script>
+    <script src="../js/api.js" type="module"></script>
+    <script src="../js/main.js" defer type="module"></script>
+    <script src="../js/puzzle.js" defer type="module"></script>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-md shadow bg-white" id="nav-user">
+        <div class="container">
+            <!--Logo-->
+            <a class="navbar-brand logo" href="user-dashboard.html">
+                <h1>RlAlly</h1>
+            </a>
+            <!--Navbar Toggle Button / Hamburger for small screen-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+
+                <!--Links-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user-dashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="crazy.html">Crazy 88</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team-view-member.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="logout-button">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Main-->
+    <main>
+        <div class="container mt-4">
+            <!--Info Card Group-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-group text-center fw-bold">
+                        <!--Text Box 1-->
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title">Puzzle:</p>
+                                <h1 class="card-text" id="current_puzzle">
+                                    --
+                                </h1>
+                            </div>
+                        </div>
+                        <!--Text Box 2-->
+                        <div class="card">
+                            <div class="card-body border text-white border-primary bg-primary">
+                                <p class="card-title">Points</p>
+                                <h4 class="card-text" id="current_points">
+                                    0 / 10
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Puzzle Row-->
+            <div class="row border rounded-3 p-4 bg-white shadow mt-4">
+                <!--Puzzle Description Col-->
+                <div class="col-12 p-0 shadow rounded-3">
+                    <!-- Description and Hint Accordion Parent-->
+                    <div class="accordion" id="accordionSpecific">
+                        <!-- Description Accordion-->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="descriptionHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#description">
+                                    <h2 class="p-0 fw-bold"> Puzzle
+                                    </h2>
+                                </button>
+                            </h2>
+                            <div id="description" class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionSpecific">
+                                <div class="accordion-body" id="descriptionAccordionBody"> <!--when accordion is collapsed, load an image through servlet.-->
+                                    <img id="puzzle-image" src="../images/" class="img-thumbnail border-0 w-100" alt="Placeholder Image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Hints Accordion-->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="hintsHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hint-accordion">
+                                    <h2 class="p-0 fw-bold"> Hints
+                                    </h2>
+                                </button>
+                            </h2>
+                            <div id="hint-accordion" class="accordion-collapse collapse" data-bs-parent="#accordionSpecific">
+                                <div class="accordion-body">
+                                    <button class="btn btn-primary align-items-center w-100 fw-bolder" id="get_hint" type="button">
+                                        Get Hint -2 Point
+                                    </button>
+                                    <!--Hint, if button was pressed, no longer hidden-->
+                                    <p class="fs-5 visually-hidden" id="hint">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti a recusandae
+                                        atque ad? Est pariatur hic, quam quas porro error quidem harum quod nam, quaerat
+                                        corporis quo cumque, et doloribus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Submission Col-->
+                <div class="col-12 border rounded-3 p-4 bg-white shadow mt-4 d-flex flex-column ">
+
+                    <!--Submission Container-->
+                    <div class="container mt-4 text-center border">
+                        <!-- File upload with image placeholder-->
+                        <label for="file-upload" class="form-label">
+                            <img id="preview" src="../images/Upload Image Placeholder.png" class="img-thumbnail border-0 w-100"
+                                alt="Placeholder Image" style="cursor: pointer; ">
+                        </label>
+                        <input type="file" class="form-control-file" id="file-upload" style="display: none;">
+                        <div class="invalid-feedback" id="incorrectFileFormatMessage" hidden>The given file has the
+                            incorrect filetype or there was another error, please try again.</div>
+
+                    </div>
+                    <!-- Add a comment-->
+                    <!-- <h2 class="fw-bolder">Add Comment</h2>
+                        <input type="text" class="form-control w-1" id="comment"> -->
+                </div>
+                <div class="row w-100 m-auto">
+                    <div class="col-12 text-center p-1">
+                        <div class="d-flex flex-row align-items-center text-center-0 w-100">
+                            <button class="mt-2 btn btn-primary w-100 fw-bolder" type="button" id="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="alert text-danger d-none" id="submission-failed-alert">
+                            Submission Failed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </main>
+    <!-- <script>
+        function submitForm() {
+            // Simulating a successful submission for demonstration purposes
+            var submissionSuccessful = false; // Replace this with the logic of checking whether the submission actually went through
+    
+            if (submissionSuccessful) {
+                // Redirect back to user-dashboard if succesful submission
+                window.location.href = "user-dashboard.html";
+            } else {
+                // Show alert when submission fails.
+                document.getElementById("submission-failed-alert").classList.remove("d-none");
+            }
+        }
+    </script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+.right-box, .left-box {
+    position: relative;
+}
+
+.right-box .bg-overlay {
+    background-image: url("../images/join_team.jpg");
+}
+
+.left-box .bg-overlay {
+    background-image: url("../images/create_team.jpg");
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.bg-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.right-box > *:not(.bg-overlay), .left-box > *:not(.bg-overlay) {
+    position: relative;
+    z-index: 3;
+}
+
+.display-2{
+    font-weight: 900;
+}
+
+.button{
+    font-weight: 900;
+}

@@ -1,0 +1,19 @@
+.accordion-item{
+    border: 1px solid #000000;
+}
+
+.fadeout {
+    animation: fadeOut 4s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

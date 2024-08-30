@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <title>Team-members</title>
+        <link rel="stylesheet" href="../css/navbar_and_logo_properties.css">
+        <link rel="stylesheet" href="../css/user-dashboard.css">
+        <script src="../js/api.js" type="module"></script>
+        <script src="../js/viewTeam.js" defer type="module"></script>
+        <script src="../js/loadsw.js"></script>
+        <script src="../js/main.js" defer type="module"></script>
+    </head>
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar sticky-top navbar-expand-md shadow bg-white" id="nav-user">
+        <div class="container">
+            <!--Logo-->
+            <a class="navbar-brand logo" href="user-dashboard.html">
+                <h1>RlAlly</h1>
+            </a>
+            <!--Navbar Toggle Button / Hamburger for small screen-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+
+                <!--Links-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user-dashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="crazy.html">Crazy 88</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team-view-member.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="logout-button">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Main-->
+    <main>
+        <div class="container mt-4">
+            <div class="row justify-content-between">
+                <div class="col-md-8">
+                    <h1>Your Team Members</h1>
+                    <h2>The only friends you will ever have!</h2>
+                </div>
+                <div class="col-md-4 p-0" id="joinCodeDiv">
+                    <p class="text-center p-2 text-bg-primary fw-bold mb-0">Join Code</p>
+                    <p class="leaderboard-toggle fw-bold border mt-0 w-100 p-2 text-center" id="joinCode">#####</p>
+                    <div class="col-lg-12" style="text-align: center; margin-top: 20px;">
+                        <button class="leaderboard-toggle btn btn-outline-success shadow mt-0" type="submit" style="width: 40%;"
+                            id="copyInviteLink">Copy code</button>
+                        <button class="leaderboard-toggle btn btn-outline-danger shadow mt-0" type="submit" style="width: 40%;"
+                            id="leaderboard-toggle">Request New Code</button>
+                    </div>
+                </div>
+            </div>
+            <!--Table content 1-->
+            <div class="tab-content" id="Team-members">
+
+
+
+                <!--Team member Tab-->
+                <div class="tab-pane fade show active" role="tabpanel">
+                    <div class="container">
+                        <table class="table mt-1 table-striped">
+                            <!--Table Head-->
+                            <thead>
+                                <tr class="bg-primary text-white" id="membersHead">
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col">Role</th>
+                                </tr>
+                            </thead>
+
+                            <!--Table Data-->
+                            <tbody id="members">
+                                <!-- <tr>
+                                    <th scope="row ">Levi</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Captain</td>
+                                <tr>
+                                    <th scope="row">Joep</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tycho</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Awan</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ansel</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tuomas</th>
+                                    <td>+31 123 4567</td>
+                                    <td>Member</td>
+
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+</html>

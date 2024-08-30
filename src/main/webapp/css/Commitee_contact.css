@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+*{
+    font-family: 'Mulish', sans-serif;
+}
+
+nav{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+h1, h1.display-2, .logo, .navbar-brand {
+    background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-family: 'Rubik', sans-serif;
+
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: center;
+    height: 60vh; 
+}
+
+.card {
+    display: flex;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.card .contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+    color: #777;
+    margin-top: 5px;
+}
+
+
+

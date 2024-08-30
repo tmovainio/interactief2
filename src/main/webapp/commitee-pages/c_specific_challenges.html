@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <title>Specific Challenge</title>
+        <link rel="stylesheet" href="../css/navbar_and_logo_properties.css">
+    </head>
+    
+    <body>
+        <!--Navbar-->
+        <nav class="navbar sticky-top navbar-expand-md shadow bg-white" id="nav-user">
+            <div class="container">
+                <!--Logo-->
+                <a class="navbar-brand logo" href="commitee-dash.html"><h1>RlAlly</h1></a>
+
+                <!--Navbar Toggle Button / Hamburger for small screen-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nav" aria-controls="nav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="nav">
+
+                <!--Links-->
+                <ul class="navbar-nav ms-auto">
+                    <!--Home-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="commitee-dash.html">Home</a>
+                    </li>
+                    <!--Challenges-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="commitee-challenges.html">Challenges</a>
+                    </li>
+                    <!--Teams-->
+                    <li class="nav-item">
+                    <a class="nav-link" href="team-approve.html">Teams</a>
+                    </li>
+                    <!--Leaderboard-->
+                    <li class="nav-item">
+                    <a class="nav-link" href="commitee-leaderboard.html">Leaderboard</a>
+                    </li>
+                    <!--Announcements-->
+                    <li class="nav-item">
+                    <a class="nav-link" href="c_announcements.html">Announcements</a>
+                    </li>
+                    <!--Logout-->
+                    <li class="nav-item">
+                    <button type="button" class="btn btn-primary" id="logout-button">Logout</button>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Main-->
+        <main>
+            <div class="container mt-4">
+                <!--Info Card Group-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-group text-center fw-bold">
+                            <!--Text Box 1-->                        
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">Challenge:</p>
+                                    <h1 class="card-text" id="current_challenge">
+                                        -
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body border text-white border-primary bg-primary">
+                                    <p class="card-title">Points</p>
+                                    <h4 class="card-text" id="current_points">
+                                        -- / -- 
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Challenge Row-->
+                <div class="row border rounded-3 p-4 bg-white shadow mt-4">
+                    <!--Challenge Location-->
+                    <div class="col-12 form-outline mb-4">
+                        <label class="form-label h4 fw-bold" for="#location-selector">Location</label>
+                        <select class="form-select" id="location-selector">
+                            <option selected>Current Challenge Location</option>
+                            <option value="1">Location 1</option>
+                            <option value="2">Location 2</option>
+                            <option value="3">Location 3</option>
+                        </select>
+                        <button class="mt-2 btn btn-primary w-100 fw-bolder" type="button" id="change_location">
+                            Change Location
+                        </button>
+                    </div>
+                    
+                    <!--Description Col-->
+                    <div class="col-12 p-0 shadow rounded-3">
+                        <!-- Description and Hint Accordion Parent-->
+                        <div class="accordion" id="accordionSpecific">
+                            <!-- Description -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="descriptionHeading">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#description"><h2 class="p-0 fw-bold"> Description
+                                    </h2>
+                                    </button>
+                                </h2>
+                                <div id="description" class="accordion-collapse collapse show" data-bs-parent="#accordionSpecific">
+                                    <div class="accordion-body">
+                                        <p class="fs-5">
+                                            -
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Hints-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="hintsHeading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hint-accordion"><h2 class="p-0 fw-bold"> Hints
+                                    </h2>
+                                    </button>
+                                </h2>
+                                <div id="hint-accordion" class="accordion-collapse collapse" data-bs-parent="#accordionSpecific">
+                                    <div class="accordion-body">
+                                        <!-- Hints, that should show when they accept the disclaimer-->
+                                        <p class="hint fs-5" id="hint">
+                                            -
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Submission Col-->
+                    <div class="col-12 border rounded-3 p-4 bg-white shadow mt-4 d-flex flex-column">
+                        <!--Submission Container-->
+                        <div class="container mt-4 text-center border">
+                            <!-- File upload with image placeholder-->
+                            <label for="file-upload" class="form-label">
+                                <img id="preview" src="../images/Upload Image Placeholder.png" class="img-thumbnail border-0 w-100"
+                                    alt="Placeholder Image" style="cursor: pointer; ">
+                            </label>
+                            <input type="file" class="form-control-file" id="file-upload" style="display: none;">
+                        </div>
+
+                        <div class="container mt-4 p-0">
+                            <button id="editBtn" class="btn btn-warning w-100 p-3">Edit</button>
+                            <button id="saveBtn" class="btn btn-success w-100 p-2 mb-2" style="display:none;">Save</button>
+                            <button id="discardBtn" class="btn btn-danger w-100 p-2 " style="display:none;">Discard</button>
+                        </div>
+                        <button id="deleteBtn" class="btn btn-danger mt-3">Delete Challenge</button>
+
+
+                        <!-- DUMMY SCRIPT FOR NOW -->
+                        <script>
+                            var originalContent = null;
+                        
+                            document.getElementById('editBtn').addEventListener('click', function() {
+                                var elementsToEdit = ['current_challenge', 'current_points', 'description', 'hint'];
+                        
+                                // Clone the original content
+                                originalContent = document.querySelector('.container').cloneNode(true);
+                        
+                                // Make each element editable
+                                elementsToEdit.forEach(function(id) {
+                                    var element = document.getElementById(id);
+                                    element.setAttribute('contentEditable', true);
+                                    element.classList.add('editable');
+                                });
+                        
+                                // Hide the edit button and show the save and discard buttons
+                                document.getElementById('editBtn').style.display = 'none';
+                                document.getElementById('saveBtn').style.display = 'inline-block';
+                                document.getElementById('discardBtn').style.display = 'inline-block';
+                            });
+                        
+                            document.getElementById('saveBtn').addEventListener('click', function() {
+                                // Make each element non-editable
+                                var editableElements = document.querySelectorAll('.editable');
+                                editableElements.forEach(function(element) {
+                                    element.setAttribute('contentEditable', false);
+                                    element.classList.remove('editable');
+                                });
+                        
+                                // Hide the save and discard buttons and show the edit button
+                                document.getElementById('saveBtn').style.display = 'none';
+                                document.getElementById('discardBtn').style.display = 'none';
+                                document.getElementById('editBtn').style.display = 'inline-block';
+                            });
+                        
+                            document.getElementById('discardBtn').addEventListener('click', function() {
+                                // Replace the edited content with the original content
+                                var container = document.querySelector('.container');
+                                container.parentNode.replaceChild(originalContent, container);
+                        
+                                // Hide the save and discard buttons and show the edit button
+                                document.getElementById('saveBtn').style.display = 'none';
+                                document.getElementById('discardBtn').style.display = 'none';
+                                document.getElementById('editBtn').style.display = 'inline-block';
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

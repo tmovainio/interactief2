@@ -1,0 +1,385 @@
+--
+-- Name: Notification_description_seq; Type: SEQUENCE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE SEQUENCE dab_di22232b_79."Notification_description_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dab_di22232b_79."Notification_description_seq" OWNER TO dab_di22232b_79;
+
+--
+-- Name: Notification_description_seq; Type: SEQUENCE OWNED BY; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER SEQUENCE dab_di22232b_79."Notification_description_seq" OWNED BY dab_di22232b_79.notification.description;
+
+
+--
+-- Name: Notification_name_seq; Type: SEQUENCE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE SEQUENCE dab_di22232b_79."Notification_name_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE dab_di22232b_79."Notification_name_seq" OWNER TO dab_di22232b_79;
+
+--
+-- Name: Notification_name_seq; Type: SEQUENCE OWNED BY; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER SEQUENCE dab_di22232b_79."Notification_name_seq" OWNED BY dab_di22232b_79.notification.name;
+
+
+--
+-- Name: administrator; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.administrator (
+    s_numb integer NOT NULL,
+    privilige character varying(255) NOT NULL
+);
+
+
+ALTER TABLE dab_di22232b_79.administrator OWNER TO dab_di22232b_79;
+
+--
+-- Name: challenges; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.challenges (
+    problem_id integer NOT NULL,
+    location_id integer,
+    description text
+);
+
+
+ALTER TABLE dab_di22232b_79.challenges OWNER TO dab_di22232b_79;
+
+--
+-- Name: crazy88; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.crazy88 (
+    problem_id integer NOT NULL,
+    description text
+);
+
+
+ALTER TABLE dab_di22232b_79.crazy88 OWNER TO dab_di22232b_79;
+
+--
+-- Name: location; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.location (
+    location_id integer NOT NULL,
+    location_name character varying(255)
+);
+
+
+ALTER TABLE dab_di22232b_79.location OWNER TO dab_di22232b_79;
+
+--
+-- Name: participant; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.participant (
+    s_numb integer NOT NULL,
+    team_name character varying(255) NOT NULL
+);
+
+
+ALTER TABLE dab_di22232b_79.participant OWNER TO dab_di22232b_79;
+
+--
+-- Name: person; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.person (
+    s_numb integer NOT NULL,
+    name character varying(100),
+    phone_numb character varying(15),
+    password character varying(255),
+    salt character varying(255)
+);
+
+
+ALTER TABLE dab_di22232b_79.person OWNER TO dab_di22232b_79;
+
+--
+-- Name: problem; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.problem (
+    problem_id integer NOT NULL,
+    problem_name character varying(255),
+    score integer
+);
+
+
+ALTER TABLE dab_di22232b_79.problem OWNER TO dab_di22232b_79;
+
+--
+-- Name: puzzles; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.puzzles (
+    problem_id integer NOT NULL,
+    image character varying(255),
+    location_id integer NOT NULL
+);
+
+
+ALTER TABLE dab_di22232b_79.puzzles OWNER TO dab_di22232b_79;
+
+--
+-- Name: settings; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.settings (
+    name character varying,
+    setting boolean
+);
+
+
+ALTER TABLE dab_di22232b_79.settings OWNER TO dab_di22232b_79;
+
+--
+-- Name: submission; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.submission (
+    team_name character varying(255) NOT NULL,
+    problem_id integer NOT NULL,
+    submission character varying(255),
+    grading_description text,
+    score integer,
+    used_hint boolean
+);
+
+
+ALTER TABLE dab_di22232b_79.submission OWNER TO dab_di22232b_79;
+
+--
+-- Name: teams; Type: TABLE; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+CREATE TABLE dab_di22232b_79.teams (
+    team_name character varying(255) NOT NULL,
+    captain integer NOT NULL,
+    invite_link character varying(255),
+    is_full boolean,
+    approved boolean
+);
+
+
+ALTER TABLE dab_di22232b_79.teams OWNER TO dab_di22232b_79;
+
+--
+-- Name: notification name; Type: DEFAULT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.notification ALTER COLUMN name SET DEFAULT nextval('dab_di22232b_79."Notification_name_seq"'::regclass);
+
+
+--
+-- Name: notification description; Type: DEFAULT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.notification ALTER COLUMN description SET DEFAULT nextval('dab_di22232b_79."Notification_description_seq"'::regclass);
+
+
+--
+-- Name: notification Notification_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.notification
+    ADD CONSTRAINT "Notification_pkey" PRIMARY KEY ("timestamp");
+
+
+--
+-- Name: administrator administrator_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.administrator
+    ADD CONSTRAINT administrator_pkey PRIMARY KEY (s_numb);
+
+
+--
+-- Name: challenges challenges_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.challenges
+    ADD CONSTRAINT challenges_pkey PRIMARY KEY (problem_id);
+
+
+--
+-- Name: crazy88 crazy88_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.crazy88
+    ADD CONSTRAINT crazy88_pkey PRIMARY KEY (problem_id);
+
+
+--
+-- Name: location location_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.location
+    ADD CONSTRAINT location_pkey PRIMARY KEY (location_id);
+
+
+--
+-- Name: participant participant_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.participant
+    ADD CONSTRAINT participant_pkey PRIMARY KEY (s_numb);
+
+
+--
+-- Name: person person_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.person
+    ADD CONSTRAINT person_pkey PRIMARY KEY (s_numb);
+
+
+--
+-- Name: problem problem_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.problem
+    ADD CONSTRAINT problem_pkey PRIMARY KEY (problem_id);
+
+
+--
+-- Name: puzzles puzzles_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.puzzles
+    ADD CONSTRAINT puzzles_pkey PRIMARY KEY (problem_id);
+
+
+--
+-- Name: submission submissions_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.submission
+    ADD CONSTRAINT submissions_pkey PRIMARY KEY (team_name, problem_id);
+
+
+--
+-- Name: teams teams_pkey; Type: CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.teams
+    ADD CONSTRAINT teams_pkey PRIMARY KEY (team_name);
+
+
+--
+-- Name: administrator administrator_s_numb_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.administrator
+    ADD CONSTRAINT administrator_s_numb_fkey FOREIGN KEY (s_numb) REFERENCES dab_di22232b_79.person(s_numb);
+
+
+--
+-- Name: challenges challenges_location_id_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.challenges
+    ADD CONSTRAINT challenges_location_id_fkey FOREIGN KEY (location_id) REFERENCES dab_di22232b_79.location(location_id);
+
+
+--
+-- Name: challenges challenges_problem_id_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.challenges
+    ADD CONSTRAINT challenges_problem_id_fkey FOREIGN KEY (problem_id) REFERENCES dab_di22232b_79.problem(problem_id);
+
+
+--
+-- Name: crazy88 crazy88_problem_id_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.crazy88
+    ADD CONSTRAINT crazy88_problem_id_fkey FOREIGN KEY (problem_id) REFERENCES dab_di22232b_79.problem(problem_id);
+
+
+--
+-- Name: puzzles location_id; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.puzzles
+    ADD CONSTRAINT location_id FOREIGN KEY (location_id) REFERENCES dab_di22232b_79.location(location_id);
+
+
+--
+-- Name: notification notification_team_name_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.notification
+    ADD CONSTRAINT notification_team_name_fkey FOREIGN KEY (team_name) REFERENCES dab_di22232b_79.teams(team_name);
+
+
+--
+-- Name: participant participant_s_numb_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.participant
+    ADD CONSTRAINT participant_s_numb_fkey FOREIGN KEY (s_numb) REFERENCES dab_di22232b_79.person(s_numb);
+
+
+--
+-- Name: participant participant_team_name_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.participant
+    ADD CONSTRAINT participant_team_name_fkey FOREIGN KEY (team_name) REFERENCES dab_di22232b_79.teams(team_name);
+
+
+--
+-- Name: puzzles puzzles_problem_id_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.puzzles
+    ADD CONSTRAINT puzzles_problem_id_fkey FOREIGN KEY (problem_id) REFERENCES dab_di22232b_79.problem(problem_id);
+
+
+--
+-- Name: submission submissions_problem_id_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.submission
+    ADD CONSTRAINT submissions_problem_id_fkey FOREIGN KEY (problem_id) REFERENCES dab_di22232b_79.problem(problem_id);
+
+
+--
+-- Name: submission submissions_team_name_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.submission
+    ADD CONSTRAINT submissions_team_name_fkey FOREIGN KEY (team_name) REFERENCES dab_di22232b_79.teams(team_name);
+
+
+--
+-- Name: teams teams_captain_fkey; Type: FK CONSTRAINT; Schema: dab_di22232b_79; Owner: dab_di22232b_79
+--
+
+ALTER TABLE ONLY dab_di22232b_79.teams
+    ADD CONSTRAINT teams_captain_fkey FOREIGN KEY (captain) REFERENCES dab_di22232b_79.person(s_numb);
